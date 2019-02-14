@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 6</title>
+</head>
+<body>
+    <form id="form1">
+        <input type="text" placeholder="Nom" id="nom1" onkeyup="copyonFomulaire()"/>
+        <input type="text" placeholder="Ne rien écrire" id="nom2" />
+        <select id="pays" onchange="selectCountry()">
+            <option value="France">France</option>
+            <option value="Espagne">Espagne</option>
+            <option value="Italie">Italie</option>
+        </select>
+        <input type="text" id="capitale" />
+        <input type="submit" value="Envoyer" />
+    </form><br>
+    <form id="form2">
+        <input type="text" placeholder="Ne rien écrire" id="nom3"/>
+    </form><br><br><br>
+
+    <form id="qcm" onsubmit="validateQCM(self)">
+        <label for="question1">Comment s'appelle le héro moustachu à la casquette rouge ?</label>
+        <select id="question1" name="question1">
+            <option value="1">Mourio</option>
+            <option value="2">Minio</option>
+            <option value="3">Mario</option>
+        </select><br>
+
+        <label for="question2">Quel personnage n'est pas présent dans super smash bros ultimate ?</label>
+        <select id="question2" name="question2">
+            <option value="1">Waluigi</option>
+            <option value="2">Kirby</option>
+            <option value="3">Fox</option>
+        </select><br>
+
+        <label for="question3">Comment s'appelle le héro de punch out ?</label>
+        <select id="question3"  name="question3">
+            <option value="1">Little Mic</option>
+            <option value="2">Little Mac</option>
+            <option value="3">Little Moe</option>
+        </select><br>
+
+        <input type="submit" value="Valider" />
+    </form>
+
+    <script>
+        function copyonFomulaire(){
+            input1 = document.getElementById("nom1");
+            input2 = document.getElementById("nom2");
+            input3 = document.getElementById("nom3");
+
+            input2.value = input1.value;
+            input3.value = input1.value;
+        }
+
+        function selectCountry() {
+            country = {"France": "Paris", "Espagne": "Madrid", "Italie": "Rome"};
+            selecter = document.getElementById("pays");
+            inputcapitale = document.getElementById("capitale");
+            inputcapitale.value = country[selecter.value]
+        }
+
+        function validateQCM(){
+            var result = {"question1": 3, "question2": 1, "question3": 2};
+            total = 0;
+            for(item in result) {
+                if(result[item] == document.getElementById(item).value) {
+                    total ++;
+                }
+            }
+            alert("score : " + total + "/3")
+        }
+    </script>
+</body>
+</html>

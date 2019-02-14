@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice_9</title>
+</head>
+<body>
+    <form id="form1" onsubmit="testmail()">
+        <input type="text" id="mail" placeholder="mail" />
+        <input type="text" id="tel" placeholder="telephone" />
+        <input type="submit" value="ok" />
+    </form>
+
+    <form id="form2" onsubmit="connection(this)">
+        <input type="text" id="login" placeholder="Login" />
+        <input type="password" id="password" placeholder="Password" />
+        <input type="submit" value="connexion" />
+    </form>
+    <script>
+        function testmail(){
+            if(document.getElementById("mail").value.match(/.+@.+..[xy]/)) {
+                alert("mail valide");
+            }
+            if(document.getElementById("tel").value.match(/^([0-9]{2}.){4}[0-9]{2}/)) {
+                alert("tel valide");
+            }
+        }
+        function connection(form) {
+            //Non sécurisé car les logins sont écrit en clair dans le code qui s'éxecute coté client, une altération est donc possible.
+            var login = "admin";
+            var password = "admin";
+            if (login == form.elements["login"].value && password == form.elements["password"].value) {
+                alert("Bons indentifiants");
+            }
+        }
+    </script>
+</body>
+</html>

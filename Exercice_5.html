@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 5</title>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script>
+        function testVariable(num) {
+            if(num >= 10) {
+                alert("supérieur ou égale a 10");
+            }
+            else {
+                alert("inférieur à 10");
+            }
+        }
+
+        function oneto10() {
+            for(i = 1 ; i <= 10 ; i++) {
+                document.write(i)
+            }
+        }
+
+        function tableCreator(){
+            var table = document.createElement('table'), tr, td, row, cell;
+            for (row = 0; row < 10; row++) {
+                tr = document.createElement('tr');
+                for (cell = 0; cell < 10; cell++) {
+                    td = document.createElement('td');
+                    tr.appendChild(td);
+                    td.innerHTML = row +" " +cell
+                }
+                table.appendChild(tr);
+            }
+            document.getElementById('container').appendChild(table);
+        }
+        tableCreator();
+    </script>
+</body>
+</html>

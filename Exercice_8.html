@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 8</title>
+</head>
+<body>
+    <a href="http://google.fr" onmouseover="closeWindows()">Fermer</a>
+    <a href="http://yahoo.fr" onmouseover="newWindow()">Ouvrir</a>
+
+    <script>
+        function newWindow(){
+            window.open('http://google.fr','_blank','width=335,height=330,resizable=1');
+        }
+        function closeWindows(){
+            window.close()
+        }
+    </script>
+</body>
+</html>
